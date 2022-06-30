@@ -1,6 +1,6 @@
 #include <iostream>
 #include "Constants.h"
-#include "Game.h"
+#include "Game.hpp"
 
 int main(int argc, char *args[])
 {
@@ -8,16 +8,16 @@ int main(int argc, char *args[])
 	std::cout << "Game is running" << std::endl;
 	auto game{new Game()}; 
 
-	game->Initialize(WINDOW_WIDTH, WINDOW_HEIGHT);
+	game->initialize(WINDOW_WIDTH, WINDOW_HEIGHT);
 
-	while (game->IsRunning())
+	while (game->running())
 	{
-		game->ProcessInput();
-		game->Update();
-		game->Render();
+		game->processInput();
+		game->update();
+		game->render();
 	}
 
-	game->Destroy();
+	game->destroy();
 	delete game;
 	return 0;
 }
